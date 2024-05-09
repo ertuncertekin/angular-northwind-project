@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<h1 class="text-primary">Hello, {{ title }}</h1>
+<p>Congratulations! Your app is running. 🎉</p>
+<button (click)="onButtonClick()" style="padding: 10px;margin-bottom: 20px;">Tıkla</button>
+<p>{{ clickCount }}</p>
+<p>{{sonuc}}</p>
+<app-footer></app-footer>
+<p *ngIf="clickCount > 5">You clicked more than 5 times</p>
+<ul>
+    <li *ngFor="let sayilar of getFiltiredItems()">
+        {{sayilar}}</li>
+</ul>
+
+
+@if (clickCount>12) {
+<p>Sayaç 12'den Büyüktür.</p>
+}
