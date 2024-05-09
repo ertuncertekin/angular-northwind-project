@@ -4,14 +4,27 @@
 <button (click)="onButtonClick()" style="padding: 10px;margin-bottom: 20px;">Tıkla</button>
 <p>{{ clickCount }}</p>
 <p>{{sonuc}}</p>
-<app-footer></app-footer>
-<p *ngIf="clickCount > 5">You clicked more than 5 times</p>
+
+
+<p *ngIf="clickCount > 5 else counterElse">You clicked more than 5 times</p>
+<ng-template #counterElse>
+    <p>Sayaç 5'ten Küçüktür</p>
+</ng-template>
 <ul>
     <li *ngFor="let sayilar of getFiltiredItems()">
         {{sayilar}}</li>
 </ul>
 
-
+<!-- YENİ KULLANIM -->
 @if (clickCount>12) {
 <p>Sayaç 12'den Büyüktür.</p>
 }
+@else if (clickCount===12) {
+<p>Sayaç 12'ye eşit.</p>
+}
+@else {
+<p>Sayaç 12'den Küçüktür.</p>
+}
+
+<!-- Yorum Satırı ctrl+k+c -->
+<app-footer></app-footer>
