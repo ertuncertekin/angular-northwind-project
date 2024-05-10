@@ -15,6 +15,32 @@
         {{sayilar}}</li>
 </ul>
 
+<!-- İstersek typescript ile filter yapabiliriz.İstersek burada ng yapısı ile yapabiliriz. -->
+<ul>
+    <li *ngFor="let product of products">
+        {{product.name}} - {{product.price}} TL</li>
+</ul>
+
+<ul>
+    <li *ngFor="let products of FilteredProducts">
+        {{products.name}}-{{products.price}}</li>
+</ul>
+
+<ul>
+    <ng-container *ngFor="let urunler of products">
+        <li *ngIf="!urunler.discontinued"> {{urunler.name}}-{{urunler.discontinued}}</li>
+    </ng-container>
+</ul>
+
+<!-- Angular 17 Kullanımı -->
+
+@for (kirtasiyeurunler of products; track $index) {
+@if (kirtasiyeurunler.price>60) {
+<li>{{kirtasiyeurunler.name}}</li>
+}
+}
+<!-- Angular 17 Kullanımı -->
+
 <!-- YENİ KULLANIM -->
 @if (clickCount>12) {
 <p>Sayaç 12'den Büyüktür.</p>
