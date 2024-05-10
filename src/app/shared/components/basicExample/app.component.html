@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<h1 class="text-primary">Hello, {{ title }}</h1>
+<p>Congratulations! Your app is running. 🎉</p>
+<button (click)="onButtonClick()" style="padding: 10px;margin-bottom: 20px;">Tıkla</button>
+<p>{{ clickCount }}</p>
+<p>{{sonuc}}</p>
+
+
+<p *ngIf="clickCount > 5 else counterElse">You clicked more than 5 times</p>
+<ng-template #counterElse>
+    <p>Sayaç 5'ten Küçüktür</p>
+</ng-template>
+<ul>
+    <li *ngFor="let sayilar of getFiltiredItems()">
+        {{sayilar}}</li>
+</ul>
+
+<!-- İstersek typescript ile filter yapabiliriz.İstersek burada ng yapısı ile yapabiliriz. -->
+<ul>
+    <li *ngFor="let product of products">
+        {{product.name}} - {{product.price}} TL</li>
+</ul>
+
+<ul>
+    <li *ngFor="let products of FilteredProducts">
+        {{products.name}}-{{products.price}}</li>
+</ul>
+
+<ul>
+    <ng-container *ngFor="let urunler of products">
+        <li *ngIf="!urunler.discontinued"> {{urunler.name}}-{{urunler.discontinued}}</li>
+    </ng-container>
+</ul>
+
+<!-- Angular 17 Kullanımı -->
+
+@for (kirtasiyeurunler of products; track $index) {
+@if (kirtasiyeurunler.price>60) {
+<li>{{kirtasiyeurunler.name}}</li>
+}
+}
+<!-- Angular 17 Kullanımı -->
+
+<!-- YENİ KULLANIM -->
+@if (clickCount>12) {
+<p>Sayaç 12'den Büyüktür.</p>
+}
+@else if (clickCount===12) {
+<p>Sayaç 12'ye eşit.</p>
+}
+@else {
+<p>Sayaç 12'den Küçüktür.</p>
+}
+
+<!-- Yorum Satırı ctrl+k+c -->
+<!-- test -->
+<app-footer></app-footer>
