@@ -1,0 +1,10 @@
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.5s;
+    /* Geçiş efekti için */
+}
+
+.list-group-item:hover {
+    background-color: blue;
+    /* Üzerine gelince mavi olsun */
+}
