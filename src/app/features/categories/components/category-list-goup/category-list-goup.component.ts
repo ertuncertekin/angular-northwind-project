@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { CategoryListItem } from '../../models/category-list-item';
 import { ListGroupComponent, ListGroupItem } from '../../../../shared/components/list-group/list-group.component';
 
@@ -15,6 +15,11 @@ import { ListGroupComponent, ListGroupItem } from '../../../../shared/components
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoryListGoupComponent {
+
+  @Output() changeSelect = new EventEmitter<{
+    selectedCategory: CategoryListItem | null;
+  }>();
+
   categoryList: CategoryListItem[] = [
     { id: 1, name: "Elektronik" },
     { id: 2, name: "Giyim" },
@@ -32,5 +37,14 @@ export class CategoryListGoupComponent {
       id: category.id.toString(),
       label: category.name
     }))
+  }
+
+  onChangeSelect(event: { selectedItemId: string | null; }) {
+    const selectedCategory: CategoryListItem | null = event.selectedItemId
+      ? this.categoryList.find(
+        (category) => category.id === Number.parseInt(event.selectedItemId!)
+      )!
+      : null;
+    this.changeSelect.emit({ selectedCategory });
   }
 }

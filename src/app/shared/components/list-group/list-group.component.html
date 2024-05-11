@@ -1,5 +1,6 @@
 <ul class="list-group list-group-item-action shadow-lg">
     @for (item of items; track $index) {
-    <li class="list-group-item list-group-item-action">{{item.label}}</li>
+    <li class="list-group-item list-group-item-action" [ngClass]="{'active':isSelectedItem(item.id)}"
+        (click)="onListGroupItemClick(item)">{{item.label}}</li>
     }
 </ul>
