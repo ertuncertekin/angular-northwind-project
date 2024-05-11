@@ -1,0 +1,28 @@
+.product-card-list {
+    display: flex;
+    /* Kartları yatay olarak hizalar */
+    flex-wrap: wrap;
+    /* Kartların sığdığı kadar yatay sıralar, alt satıra geçer */
+}
+
+.product-card-list .card {
+    width: 12rem;
+    /* Kartların genişliği */
+    margin: 0.5rem;
+    /* Kartlar arası boşluk */
+}
+
+.product-card-list .card .card-img-top {
+    width: 100%;
+    /* Resmin genişliğini kartın genişliği kadar yapar */
+    height: auto;
+    /* Yüksekliği otomatik olarak ayarlar, oranları korur */
+}
+
+.product-card-list .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Kart içeriğini kart yüksekliğine genişletir */
+}

@@ -1,0 +1,4 @@
+@for (product of productList; track $index) {
+<app-card-list class="product-card-list" [title]="product.name" [description]="product.description"
+    [imageUrl]="product.imageUrl" [buttonLabel]="product.price + ' TL' "></app-card-list>
+}
