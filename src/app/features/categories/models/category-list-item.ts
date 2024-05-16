@@ -1,4 +1,4 @@
-export interface CategoryListItem {
+export interface CategoryListItem2 {
     id: number;
     name: string;
 }
